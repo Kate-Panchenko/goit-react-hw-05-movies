@@ -4,6 +4,7 @@ import { fetchCast } from "services/getMovies";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { CastList } from "components/MoviesList/Cast";
+import { Title } from "components/MoviesList/MoviesList.styled";
 
 const Cast = () => {
     const { id } = useParams();
@@ -14,8 +15,10 @@ const Cast = () => {
         async function getCast() {
             try {
                 const cast = await fetchCast(id);
-                setCast([...cast]);
-                setIsLoaded(true);
+                if (cast.length) {
+                    setCast([...cast]);
+                    setIsLoaded(true);
+                }
         } catch (error) {
             toast.error('We can`t find cast of this film');
         }
@@ -29,6 +32,8 @@ const Cast = () => {
                 <CastList cast={cast} />
             </section>
         )
+    } else {
+        return(<Title>Sorry, there is no cast for this movie</Title>)
     }
 }
 
