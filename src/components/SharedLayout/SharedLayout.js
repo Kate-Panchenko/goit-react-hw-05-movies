@@ -1,12 +1,14 @@
 import { Link, Container, Header } from './SharedLayout.styled';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { GlobalStyle } from 'components/GlobalStyle';
+import { GlobalStyle, theme } from 'components/GlobalStyle';
 import { ToastContainer } from 'react-toastify';
+
+import { ThemeProvider } from 'styled-components';
 
 export const SharedLayout = () => {
   return (
-    <Container>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Header>
         <nav>
@@ -14,10 +16,12 @@ export const SharedLayout = () => {
           <Link to="/movies">Movies</Link>
         </nav>
       </Header>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Outlet />
-      </Suspense>
-      <ToastContainer autoClose={1500} hideProgressBar={true} />
-    </Container>
+      <Container>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Outlet />
+        </Suspense>
+        <ToastContainer autoClose={1500} hideProgressBar={true} />
+      </Container>
+    </ThemeProvider>
   );
 };

@@ -1,10 +1,11 @@
 import { TrendingList } from "components/MoviesList/TrendingList";
 import PropTypes from 'prop-types';
+import { Title } from "components/SharedLayout/SharedLayout.styled";
 
 const Home = ({movies}) => {
     return (
         <main>
-            <h1>Trending today</h1>
+            <Title>Trending today</Title>
             <TrendingList movies={movies} />
         </main>
     )

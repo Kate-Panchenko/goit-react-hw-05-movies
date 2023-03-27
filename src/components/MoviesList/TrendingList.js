@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { List, Item } from './MoviesList.styled';
+import { List, Item, Image, Title } from './MoviesList.styled';
 import PropTypes from 'prop-types';
 
 export const TrendingList = ({ movies }) => {
@@ -10,7 +10,7 @@ export const TrendingList = ({ movies }) => {
           <Item key={id}>
             <Link to={`/movies/${id}`} state={{ from: '/' }}>
               <div>
-                <img
+                <Image
                   src={
                     poster_path
                       ? 'https://image.tmdb.org/t/p/w500/' + poster_path
@@ -19,7 +19,7 @@ export const TrendingList = ({ movies }) => {
                   alt=""
                 />
               </div>
-              <p>{title}</p>
+              <Title>{title}</Title>
             </Link>
           </Item>
         );

@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { List, Item } from './MoviesList.styled';
+import { List, Item, Image, Title } from './MoviesList.styled';
 import PropTypes from 'prop-types';
 
 export const SearchList = ({ movies }) => {
@@ -14,7 +14,7 @@ export const SearchList = ({ movies }) => {
               state={{ from: location.pathname + location.search }}
             >
               <div>
-                <img
+                <Image
                   src={
                     poster_path
                       ? 'https://image.tmdb.org/t/p/w500/' + poster_path
@@ -23,7 +23,7 @@ export const SearchList = ({ movies }) => {
                   alt="title"
                 />
               </div>
-              <p>{title}</p>
+              <Title>{title}</Title>
             </Link>
           </Item>
         );
