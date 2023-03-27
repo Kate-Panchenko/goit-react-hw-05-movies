@@ -18,3 +18,21 @@ export function fetchMoviesByKeyWord(query) {
     )
     .then(response => response.data.results);
 }
+
+export function fetchMoviesById(id) {
+  return axios
+    .get(`${BASE_URL}movie/${id}?api_key=${API_KEY}&language=en-US`)
+    .then(response => response.data);
+}
+
+export function fetchCast(id) {
+  return axios
+    .get(`${BASE_URL}movie/${id}/credits?api_key=${API_KEY}&language=en-US`)
+    .then(response => response.data.cast);
+}
+
+export function fetchReviews(id) {
+  return axios
+    .get(`${BASE_URL}movie/${id}/reviews?api_key=${API_KEY}&language=en-US`)
+    .then(response => response.data.results);
+}

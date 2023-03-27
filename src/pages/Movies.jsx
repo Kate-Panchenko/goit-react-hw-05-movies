@@ -11,11 +11,6 @@ const Movies = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const query = searchParams.get("query") ?? "";
 
-    // const updateQueryString = (name) => {
-    // const nextParams = name !== "" ? { name } : {};
-    // setSearchParams(nextParams);
-    // };
-
     const onSubmit = evt => {
         evt.preventDeafault();
         setSearchParams({ query: evt.target.query.value });

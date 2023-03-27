@@ -31,3 +31,32 @@ export const Title = styled.p`
   font-style: normal;
   font-weight: 500;
 `;
+
+export const CastItem = styled.li`
+  width: calc((100% - 80px) / 5);
+`;
+
+export const CastInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: ${props => props.theme.black};
+`;
+
+export const ReviewsInfo = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+`;
+
+export const Review = styled.li`
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-bottom: 1px solid ${props => props.theme.black};
+  padding-bottom: 8px;
+`;
+
+export const ReviewInfo = styled.span`
+  font-weight: 400;
+`;

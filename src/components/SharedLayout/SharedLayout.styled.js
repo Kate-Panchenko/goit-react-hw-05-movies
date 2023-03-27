@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 export const Container = styled.div`
   max-width: 960px;
@@ -29,7 +29,7 @@ export const Header = styled.header`
   }
 `;
 
-export const Link = styled(NavLink)`
+export const StyledNavLink = styled(NavLink)`
   padding: 8px 16px;
   border-radius: 20px;
   text-decoration: none;
@@ -53,4 +53,33 @@ export const Title = styled.h1`
   margin-bottom: 18px;
   color: ${props => props.theme.black};
   text-align: center;
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  padding: 5px 10px;
+  color: ${props => props.theme.black};
+  background-color: ${props => props.theme.accent};
+  border-radius: 20px;
+  display: inline-block;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    color: ${props => props.theme.white};
+    background-color: ${props => props.theme.border};
+  }
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 18px;
+`;
+
+export const ButtonsList = styled.ul`
+  display: flex;
+  gap: 12px;
+  font-size: 20px;
 `;
