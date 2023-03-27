@@ -10,3 +10,11 @@ export function fetchTrending() {
     )
     .then(response => response.data.results);
 }
+
+export function fetchMoviesByKeyWord(query) {
+  return axios
+    .get(
+      `${BASE_URL}search/movie?api_key=${API_KEY}&page=1&query=${query}&language=en-US`
+    )
+    .then(response => response.data.results);
+}

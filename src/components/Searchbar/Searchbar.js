@@ -1,8 +1,8 @@
-export const Searchbar = () => {
+export const Searchbar = ({ onSubmit }) => {
   return (
-    <div>
-      <input type="text" />
+    <form onSubmit={onSubmit}>
+      <input type="text" name="query" autoFocus autoComplete="off" />
       <button type="submit">Search</button>
-    </div>
+    </form>
   );
 };

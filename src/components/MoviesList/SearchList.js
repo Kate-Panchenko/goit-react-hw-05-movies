@@ -1,14 +1,18 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { List, Item } from './MoviesList.styled';
 import PropTypes from 'prop-types';
 
-export const TrendingList = ({ movies }) => {
+export const SearchList = ({ movies }) => {
+  const location = useLocation();
   return (
     <List>
       {movies.map(({ id, title, poster_path }) => {
         return (
           <Item key={id}>
-            <Link to={`/movies/${id}`} state={{ from: '/' }}>
+            <Link
+              to={`${id}`}
+              state={{ from: location.pathname + location.search }}
+            >
               <div>
                 <img
                   src={
@@ -16,7 +20,7 @@ export const TrendingList = ({ movies }) => {
                       ? 'https://image.tmdb.org/t/p/w500/' + poster_path
                       : 'No image'
                   }
-                  alt=""
+                  alt="title"
                 />
               </div>
               <p>{title}</p>
@@ -28,7 +32,7 @@ export const TrendingList = ({ movies }) => {
   );
 };
 
-TrendingList.propTypes = {
+SearchList.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
