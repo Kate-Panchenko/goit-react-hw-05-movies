@@ -12,7 +12,7 @@ const Movies = () => {
     const query = searchParams.get("query") ?? "";
 
     const onSubmit = evt => {
-        evt.preventDeafault();
+        evt.preventDefault();
         setSearchParams({ query: evt.target.query.value });
         evt.target.reset();
     }
